@@ -12,11 +12,15 @@
         let namespacesDiv = document.querySelector('.namespaces');
         namespacesDiv.innerHTML = "";
         nsData.forEach((ns)=>{
-            namespacesDiv.innerHTML += `<div class ="namespace"><img src="${ns.img}" /></div>`
+            namespacesDiv.innerHTML += `<div class ="namespace" ns=${ns.endpoint} ><img src="${ns.img}" /></div>`
         })
         console.log(document.getElementsByClassName('namespace'))
-        document.getElementsByClassName('namespace'),forEach((elem)=>{
-
+        Array.from(document.getElementsByClassName('namespace')),forEach((elem)=>{
+            // console.log(elem)
+            elem.addEventListener('click',(e)=>{
+                const nsEndpoint = elem.getAttribute('ns');
+                console.log(`${nsEndpoint} I should go to now`)
+            })
         })
 
     })
